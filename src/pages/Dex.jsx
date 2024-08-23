@@ -1,23 +1,28 @@
 import { useState } from "react";
 import Dashboard from "../components/Dashboard";
-import PokemonCard from "../components/PokemonCard";
 import PokemonList from "../components/PokemonList";
 import MOCK_DATA from "../mock";
 
 function Dex() {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
 
-  const addPokemon = (pokemon) => {};
+  const onAdd = (pokemon) => {
+    setSelectedPokemon([...selectedPokemon, pokemon]);
+    console.log(selectedPokemon);
+  };
+  // const onRemove = () => {};
 
-  const removePokemon = (pokemon = {});
+  // const addPokemon = (pokemon) => {};
 
+  // const removePokemon = (pokemon = {});
+  //selectedPokemon 배열에 setSelectedPokemon으로 포켓몬들 추가하고 삭제하는 방식으로 구현하기
   return (
     <div>
       <Dashboard
         selectedPokemon={selectedPokemon}
-        onRemovePokemon={removePokemon}
+        // onRemovePokemon={removePokemon}
       />
-      <PokemonList pokemonList={MOCK_DATA} onAddPokemon={addPokemon} />
+      <PokemonList pokemonList={MOCK_DATA} onAdd={onAdd} />
     </div>
   );
 }

@@ -1,15 +1,22 @@
 import styled from "styled-components";
+import MOCK_DATA from "../mock";
+import PokemonCard from "./PokemonCard";
 
-const ListContainer = styled.div``;
+const ListContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+`;
 
-const PokemonList = ({ pokemonList, onAddPokemon }) => {
+const PokemonList = ({ onAdd }) => {
   return (
     <ListContainer>
-      {pokemonList.map((pokemon) => (
+      {MOCK_DATA.map((pokemon) => (
         <PokemonCard
           key={pokemon.id}
-          pokemon={{}}
-          onAdd={() => {}}
+          pokemon={pokemon}
+          onAdd={() => {
+            onAdd(pokemon);
+          }}
           isSelected={false}
         />
       ))}
