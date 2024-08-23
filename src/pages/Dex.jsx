@@ -8,20 +8,17 @@ function Dex() {
 
   const onAdd = (pokemon) => {
     setSelectedPokemon([...selectedPokemon, pokemon]);
-    console.log(selectedPokemon);
   };
-  // const onRemove = () => {};
+  const onRemove = (pokemon) => {
+    const removePokemon = selectedPokemon.filter((data) => {
+      return data.id !== pokemon.id;
+    });
+    setSelectedPokemon(removePokemon);
+  };
 
-  // const addPokemon = (pokemon) => {};
-
-  // const removePokemon = (pokemon = {});
-  //selectedPokemon 배열에 setSelectedPokemon으로 포켓몬들 추가하고 삭제하는 방식으로 구현하기
   return (
     <div>
-      <Dashboard
-        selectedPokemon={selectedPokemon}
-        // onRemovePokemon={removePokemon}
-      />
+      <Dashboard selectedPokemon={selectedPokemon} onRemove={onRemove} />
       <PokemonList pokemonList={MOCK_DATA} onAdd={onAdd} />
     </div>
   );
