@@ -6,9 +6,11 @@ import MOCK_DATA from "../mock";
 function Dex() {
   const [selectedPokemon, setSelectedPokemon] = useState([]);
 
+  // 대시보드에 포켓몬 카드를 추가하는 기능
   const onAdd = (pokemon) => {
     setSelectedPokemon([...selectedPokemon, pokemon]);
   };
+  // 대시보드에 포켓몬 카드를 삭제하는 기능
   const onRemove = (pokemon) => {
     const removePokemon = selectedPokemon.filter((data) => {
       return data.id !== pokemon.id;
