@@ -14,9 +14,7 @@ const PokemonList = ({ onAdd }) => {
         <PokemonCard
           key={pokemon.id}
           pokemon={pokemon}
-          onAdd={() => {
-            onAdd(pokemon);
-          }}
+          onAdd={onAdd}
           isSelected={false}
         />
       ))}

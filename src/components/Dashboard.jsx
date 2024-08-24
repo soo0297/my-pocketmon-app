@@ -15,9 +15,7 @@ const Dashboard = ({ selectedPokemon, onRemove }) => {
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
-              onRemove={() => {
-                onRemove(pokemon);
-              }}
+              onRemove={onRemove}
               isSelected={true}
             />
           ))}

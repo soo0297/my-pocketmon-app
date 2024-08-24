@@ -1,14 +1,11 @@
 import styled from "styled-components";
-
 const Card = styled.div``;
-
 const Button = styled.button`
   background-color: red;
   color: white;
   border: 1px none;
   border-radius: 5px;
 `;
-
 function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
   return (
     <Card>
@@ -25,7 +22,7 @@ function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
       ) : (
         <Button
           onClick={() => {
-            onAdd();
+            onAdd(pokemon);
           }}
         >
           추가
@@ -34,5 +31,4 @@ function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
     </Card>
   );
 }
-
 export default PokemonCard;
