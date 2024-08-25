@@ -10,12 +10,14 @@ const Dashboard = ({ selectedPokemon, onRemove }) => {
       {selectedPokemon.length === 0 ? (
         <p>선택된 포켓몬이 없습니다.</p>
       ) : (
-        <div>
+        <div style={{ display: "flex" }}>
           {selectedPokemon.map((pokemon) => (
             <PokemonCard
               key={pokemon.id}
               pokemon={pokemon}
-              onRemove={onRemove}
+              onRemove={() => {
+                onRemove(pokemon);
+              }}
               isSelected={true}
             />
           ))}
