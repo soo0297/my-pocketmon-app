@@ -23,6 +23,7 @@ function Home() {
     cursor: pointer;
     &:hover {
       background-color: #333333;
+      transition: 0.2s;
     }
   `;
 

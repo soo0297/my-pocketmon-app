@@ -6,7 +6,6 @@ import { PokemonContext } from "../context/Context";
 const DashboardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
   height: 280px;
   border: 7px solid #ffcc00;
@@ -16,6 +15,8 @@ const DashboardContainer = styled.div`
 const SelectedContainer = styled.div`
   display: flex;
   justify-content: space-around;
+  height: 100%;
+  align-items: center;
 `;
 
 const SelectedCards = styled.div`
@@ -32,9 +33,9 @@ const Dashboard = () => {
       <h1>나만의 포켓몬</h1>
       <SelectedContainer>
         {selectedPokemon.length === 0 ? (
-          <p style={{ marginTop: "50px" }}>선택된 포켓몬이 없습니다.</p>
+          <p>선택된 포켓몬이 없습니다.</p>
         ) : (
-          <SelectedCards style={{ display: "flex" }}>
+          <SelectedCards>
             {selectedPokemon.map((pokemon) => (
               <PokemonCard
                 key={pokemon.id}

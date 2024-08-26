@@ -11,6 +11,9 @@ const Card = styled.div`
   border: 2px solid #ffcc00;
   border-radius: 5px;
   padding: 5px;
+  &:hover {
+    border: 2px solid #333333;
+  }
 `;
 
 const AddButton = styled.button`
