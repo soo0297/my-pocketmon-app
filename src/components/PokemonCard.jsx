@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Card = styled.div``;
+const Card = styled.div`
+  justify-content: center;
+  align-items: center;
+`;
 
 const Button = styled.button`
   background-color: red;
