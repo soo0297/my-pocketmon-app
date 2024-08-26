@@ -1,9 +1,21 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { useContext } from "react";
+import { PokemonContext } from "../context/Context";
 
 const DashboardContainer = styled.div``;
 
-const Dashboard = ({ selectedPokemon, onRemove }) => {
+const Dashboard = () => {
+  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext);
+
+  // 대시보드에 포켓몬 카드를 삭제하는 기능
+  const onRemove = (pokemon) => {
+    const removePokemon = selectedPokemon.filter((data) => {
+      return data.id !== pokemon.id;
+    });
+    setSelectedPokemon(removePokemon);
+  };
+
   return (
     <DashboardContainer>
       <h2>나만의 포켓몬</h2>

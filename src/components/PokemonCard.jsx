@@ -20,7 +20,7 @@ function PokemonCard({ pokemon, onAdd, onRemove, isSelected }) {
   return (
     <Card>
       <div
-        // navigate 소괄호 안에 리터럴스플릿 써야 id값을 불러올 수 있음.
+        // navigate 소괄호 안에 템플릿리터럴(``) 써야 id값을 불러올 수 있음.
         onClick={() => {
           navigate(`/detail?id=${pokemonId}`);
         }}
