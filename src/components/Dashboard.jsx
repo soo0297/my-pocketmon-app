@@ -3,38 +3,51 @@ import PokemonCard from "./PokemonCard";
 import { useContext } from "react";
 import { PokemonContext } from "../context/Context";
 
-const DashboardContainer = styled.div``;
+const DashboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  align-items: center;
+  height: 280px;
+  border: 7px solid #ffcc00;
+  border-radius: 10px;
+`;
+
+const SelectedContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const SelectedCards = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+`;
 
 const Dashboard = () => {
-  const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext);
-
-  // 대시보드에 포켓몬 카드를 삭제하는 기능
-  const onRemove = (pokemon) => {
-    const removePokemon = selectedPokemon.filter((data) => {
-      return data.id !== pokemon.id;
-    });
-    setSelectedPokemon(removePokemon);
-  };
+  const { selectedPokemon, onRemove } = useContext(PokemonContext);
 
   return (
     <DashboardContainer>
-      <h2>나만의 포켓몬</h2>
-      {selectedPokemon.length === 0 ? (
-        <p>선택된 포켓몬이 없습니다.</p>
-      ) : (
-        <div style={{ display: "flex" }}>
-          {selectedPokemon.map((pokemon) => (
-            <PokemonCard
-              key={pokemon.id}
-              pokemon={pokemon}
-              onRemove={() => {
-                onRemove(pokemon);
-              }}
-              isSelected={true}
-            />
-          ))}
-        </div>
-      )}
+      <h1>나만의 포켓몬</h1>
+      <SelectedContainer>
+        {selectedPokemon.length === 0 ? (
+          <p style={{ marginTop: "50px" }}>선택된 포켓몬이 없습니다.</p>
+        ) : (
+          <SelectedCards style={{ display: "flex" }}>
+            {selectedPokemon.map((pokemon) => (
+              <PokemonCard
+                key={pokemon.id}
+                pokemon={pokemon}
+                onRemove={() => {
+                  onRemove(pokemon);
+                }}
+                isSelected={true}
+              />
+            ))}
+          </SelectedCards>
+        )}
+      </SelectedContainer>
     </DashboardContainer>
   );
 };
