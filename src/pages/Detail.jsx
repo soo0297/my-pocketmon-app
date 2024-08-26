@@ -35,6 +35,11 @@ const PokemonDetail = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: calc(100vh - 16px);
+  > img {
+    width: 250px;
+    height: 250px;
+  }
 `;
 
 const BackButton = styled.button`
