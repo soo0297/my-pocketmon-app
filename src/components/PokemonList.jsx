@@ -7,6 +7,8 @@ import { PokemonContext } from "../context/Context";
 const ListContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px;
 `;
 
 const PokemonList = () => {

@@ -27,3 +27,5 @@ const Detail = () => {
 };
 
 export default Detail;
+
+const PokemonDetail = styled.div``;

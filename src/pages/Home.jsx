@@ -1,32 +1,38 @@
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Home() {
-  const homeStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  };
+  const Home = styled.div`
+    text-align: center;
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -75px;
+    margin-left: -150px;
+  `;
 
-  const goInButton = {
-    backgroundColor: "red",
-    color: "white",
-    border: "1px none",
-    borderRadius: "5px",
-    padding: "10px 15px",
-    fontSize: "20px",
-    cursor: "pointer",
-  };
+  const GoInButton = styled.button`
+    background-color: #ff6666;
+    color: white;
+    border: 1px none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: #333333;
+    }
+  `;
 
   const navigate = useNavigate();
 
   return (
-    <div style={homeStyle}>
+    <Home>
       <h1>포켓몬 도감</h1>
-      <button style={goInButton} onClick={() => navigate("/dex")}>
-        포켓몬 도감 시작하기
-      </button>
-    </div>
+      <GoInButton onClick={() => navigate("/dex")}>시작하기</GoInButton>
+    </Home>
   );
 }
 

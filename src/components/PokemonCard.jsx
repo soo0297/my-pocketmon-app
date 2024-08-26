@@ -6,10 +6,23 @@ import { PokemonContext } from "../context/Context";
 const Card = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffcc00;
+  border-radius: 5px;
+  padding: 5px;
 `;
 
-const Button = styled.button`
-  background-color: red;
+const AddButton = styled.button`
+  background-color: #33cc33;
+  color: white;
+  border: 1px none;
+  border-radius: 5px;
+  width: 50%;
+`;
+
+const RemoveButton = styled.button`
+  background-color: #ff6666;
   color: white;
   border: 1px none;
   border-radius: 5px;
@@ -33,21 +46,21 @@ function PokemonCard({ pokemon, isSelected }) {
         <p style={{ textAlign: "center" }}>{pokemon.korean_name}</p>
       </div>
       {isSelected === true ? (
-        <Button
+        <RemoveButton
           onClick={() => {
             onRemove(pokemon);
           }}
         >
           삭제
-        </Button>
+        </RemoveButton>
       ) : (
-        <Button
+        <AddButton
           onClick={() => {
             onAdd(pokemon);
           }}
         >
           추가
-        </Button>
+        </AddButton>
       )}
     </Card>
   );
