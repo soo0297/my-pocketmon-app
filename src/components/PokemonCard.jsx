@@ -1,7 +1,8 @@
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { PokemonContext } from "../context/Context";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { onAdd, onRemove } from "../redux/modules/pokemon";
 
 const Card = styled.div`
   display: flex;
@@ -33,9 +34,23 @@ const RemoveButton = styled.button`
 `;
 
 function PokemonCard({ pokemon, isSelected }) {
-  const { onAdd, onRemove } = useContext(PokemonContext);
+  const pokemons = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
+  // const { onAdd, onRemove } = useContext(PokemonContext);
   const navigate = useNavigate();
   const pokemonId = pokemon.id;
+
+  const handleOnAdd = () => {
+    if (pokemons.length >= 6) {
+      alert("최대 6개까지만 선택할 수 있습니다.");
+      return;
+    }
+    if (pokemons.find((el) => el.id === pokemon.id)) {
+      alert("이미 등록된 포켓몬 입니다");
+      return;
+    }
+    dispatch(onAdd(pokemon));
+  };
 
   return (
     <Card>
@@ -51,7 +66,7 @@ function PokemonCard({ pokemon, isSelected }) {
       {isSelected === true ? (
         <RemoveButton
           onClick={() => {
-            onRemove(pokemon);
+            dispatch(onRemove(pokemon));
           }}
         >
           삭제
@@ -59,7 +74,7 @@ function PokemonCard({ pokemon, isSelected }) {
       ) : (
         <AddButton
           onClick={() => {
-            onAdd(pokemon);
+            handleOnAdd();
           }}
         >
           추가
