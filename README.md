@@ -36,4 +36,5 @@ https://my-pockemon-app.vercel.app/
 #### 6. Git 브랜치 전략 사용하기
 
 1. `contextAPI` 브랜치 생성하여 contextAPI 사용해보기
-2. `redux` 브랜치 생성하여 contextAPI 사용했던 것 지우고, 일반 redux로 고쳐보기
+2. `redux` 브랜치 생성하여 contextAPI 사용했던 것 지우고, 일반 redux로 리팩토링 하기
+3. `RTK` 브랜치 생성하여 redux toolkit 사용하여 리팩토링 하기
