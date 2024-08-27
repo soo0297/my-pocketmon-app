@@ -26,8 +26,6 @@ const pokemon = (state = initialState, action) => {
     case ON_ADD:
       return [...state, action.payload];
     case ON_REMOVE: {
-      console.log("state", state);
-      console.log("ac", action);
       const removePokemon = state.filter((data) => {
         return data.id !== action.payload.id;
       });
