@@ -1,12 +1,8 @@
-import { createStore } from "redux";
-import { combineReducers } from "redux";
-import pokemon from "../modules/pokemon";
+import { configureStore } from "@reduxjs/toolkit";
+import pokemonSlice from "../slices/pokemonSlice";
 
-// 1) rootReducer 만들기
-const rootReducer = combineReducers({ pokemon });
+const store = configureStore({
+  reducer: { pokemon: pokemonSlice },
+});
 
-// 2) store 조합
-const store = createStore(rootReducer);
-
-// 3) 만든 store 내보내기
 export default store;

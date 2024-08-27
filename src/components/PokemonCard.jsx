@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { onAdd, onRemove } from "../redux/modules/pokemon";
+import { onAdd, onRemove } from "../redux/slices/pokemonSlice";
 
 const Card = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ const RemoveButton = styled.button`
 function PokemonCard({ pokemon, isSelected }) {
   const pokemons = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
-  // const { onAdd, onRemove } = useContext(PokemonContext);
+
   const navigate = useNavigate();
   const pokemonId = pokemon.id;
 

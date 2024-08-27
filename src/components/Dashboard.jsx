@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
 import { useSelector } from "react-redux";
-import { onRemove } from "../redux/modules/pokemon";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -40,9 +39,6 @@ const Dashboard = () => {
               <PokemonCard
                 key={pokemon.id}
                 pokemon={pokemon}
-                onRemove={() => {
-                  onRemove(pokemon);
-                }}
                 isSelected={true}
               />
             ))}
