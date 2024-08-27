@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import MOCK_DATA from "../mock";
 import PokemonCard from "./PokemonCard";
-import { onAdd } from "../redux/modules/pokemon";
 
 const ListContainer = styled.div`
   display: flex;
@@ -14,12 +13,7 @@ const PokemonList = () => {
   return (
     <ListContainer>
       {MOCK_DATA.map((pokemon) => (
-        <PokemonCard
-          key={pokemon.id}
-          pokemon={pokemon}
-          onAdd={onAdd}
-          isSelected={false}
-        />
+        <PokemonCard key={pokemon.id} pokemon={pokemon} isSelected={false} />
       ))}
     </ListContainer>
   );
