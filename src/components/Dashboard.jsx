@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { useContext } from "react";
-import { PokemonContext } from "../context/Context";
+import { useSelector } from "react-redux";
+import { onRemove } from "../redux/modules/pokemon";
 
 const DashboardContainer = styled.div`
   display: flex;
@@ -26,17 +26,17 @@ const SelectedCards = styled.div`
 `;
 
 const Dashboard = () => {
-  const { selectedPokemon, onRemove } = useContext(PokemonContext);
+  const pokemons = useSelector((state) => state.pokemon);
 
   return (
     <DashboardContainer>
       <h1>나만의 포켓몬</h1>
       <SelectedContainer>
-        {selectedPokemon.length === 0 ? (
+        {pokemons.length === 0 ? (
           <p>선택된 포켓몬이 없습니다.</p>
         ) : (
           <SelectedCards>
-            {selectedPokemon.map((pokemon) => (
+            {pokemons.map((pokemon) => (
               <PokemonCard
                 key={pokemon.id}
                 pokemon={pokemon}

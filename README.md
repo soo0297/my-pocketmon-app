@@ -1,8 +1,22 @@
-# React + Vite
+# 포켓몬 도감 만들기
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 151종의 포켓몬 중 원하는 6마리 포켓몬을 선택하여 '나만의 포켓몬'을 골라라!
 
-Currently, two official plugins are available:
+https://my-pockemon-app.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 목표
+
+#### 1. 페이지 라우팅 구현하기
+
+: `react-router-dom`을 이용해 홈 페이지에서 도감 페이지로 이동, 도감 페이지에서 상세 페이지로 이동
+
+#### 2. 도감페이지는 3개의 컴포넌트로 분리하기
+
+: 반드시 `Dashboard`, `PokemonList`, `PokemonCard`로 컴포넌트를 구분하여 페이지를 구성
+
+- 포켓몬 리스트 속 각 카드들은 '추가' 버튼을 가짐.
+- 선택된 포켓몬이 대시보드에 표시되며, 이 카드들은 '삭제' 버튼을 가짐.
+- 최대 6마리 포켓몬만 가질 수 있음.
+- 각 포켓몬 카드를 클릭하면 상세 페이지로 이동
+
+#### 3.

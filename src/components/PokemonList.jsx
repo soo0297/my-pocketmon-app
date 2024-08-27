@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import MOCK_DATA from "../mock";
 import PokemonCard from "./PokemonCard";
-import { useContext } from "react";
-import { PokemonContext } from "../context/Context";
+import { onAdd } from "../redux/modules/pokemon";
 
 const ListContainer = styled.div`
   display: flex;
@@ -12,8 +11,6 @@ const ListContainer = styled.div`
 `;
 
 const PokemonList = () => {
-  const { onAdd } = useContext(PokemonContext);
-
   return (
     <ListContainer>
       {MOCK_DATA.map((pokemon) => (
